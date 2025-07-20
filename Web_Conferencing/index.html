@@ -1,0 +1,72 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/simple-peer@9.11.1/simplepeer.min.js"></script>
+    <meta charset="UTF-8" />
+    <title>WebRTC Video Conference</title>
+    <style>
+      body {
+        font-family: Arial;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      video {
+        width: 300px;
+        height: 200px;
+        background: black;
+      }
+      #controls {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="controls">
+      <button id="start">Start Camera</button>
+      <button id="share">Share Screen</button>
+    </div>
+    <div id="videos"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WebRTC Rooms</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+      video {
+        width: 300px;
+        height: 200px;
+        background: black;
+      }
+      #videos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>WebRTC Room-Based Video Chat</h2>
+    <div>
+      <button id="create">Create Room</button>
+      <input id="roomInput" placeholder="Enter Room Code" />
+      <button id="join">Join Room</button>
+      <button id="share">Share Screen</button>
+    </div>
+    <p id="roomCode"></p>
+    <div id="videos"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
