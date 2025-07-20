@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Online Compiler</title>
+  </head>
+  <body>
+    <h2>Online Compiler (Python & C)</h2>
+    <form id="compileForm">
+      <label for="language">Language:</label>
+      <select id="language" name="language">
+        <option value="python">Python</option>
+        <option value="c">C</option>
+      </select>
+      <br /><br />
+      <label for="code">Code:</label><br />
+      <textarea id="code" name="code" rows="10" cols="60">
+// Write your code here</textarea
+      ><br /><br />
+      <button type="submit">Run</button>
+    </form>
+    <h3>Output:</h3>
+    <pre id="output"></pre>
+
+    <script>
+      const form = document.getElementById("compileForm");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const code = document.getElementById("code").value;
+        const language = document.getElementById("language").value;
+
+        const response = await fetch("/run", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code, language }),
+        });
+
+        const result = await response.json();
+        document.getElementById("output").textContent =
+          result.output || result.error;
+      });
+    </script>
+  </body>
+</html>
